@@ -1,0 +1,7 @@
+package com.ars.controller;
+
+@RestController
+@RequestMapping("/ars/api")
+public class RegistrationController {
+
+}

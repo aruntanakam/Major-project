@@ -1,0 +1,21 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: AppRegistrationService
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Admin@123
+    url: jdbc:mysql://localhost:3306/majorprojdb
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MYSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+ssn-web:
+   base-url: http://localhost:4000
+   end-point: /ssn/api/find/{ssn}
+   
+statename: CALIFORNIA

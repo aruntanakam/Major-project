@@ -1,0 +1,5 @@
+package com.ars.exception;
+
+public class InvalidSsnException {
+
+}

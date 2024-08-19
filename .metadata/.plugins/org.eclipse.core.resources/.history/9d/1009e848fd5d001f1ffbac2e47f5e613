@@ -1,0 +1,24 @@
+package com.ars.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.reactive.function.client.WebClient;
+
+import com.ars.entity.RegistrationEntity;
+
+public class RegistrationServiceImpl implements IRegistrationService {
+	
+	@Autowired
+	private WebClient client;
+	
+	@Value("${ssn-web.end-point}")
+	private String ssn_uri;
+
+	@Override
+	public String registerCustomer(RegistrationEntity entity) {
+		
+		client.get().uri(null, null)
+		
+		return null;
+	}
+
+}

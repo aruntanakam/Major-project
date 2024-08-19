@@ -1,0 +1,5 @@
+package com.ars.configuration;
+
+public class RegistrationConfig {
+
+}

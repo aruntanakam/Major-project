@@ -1,0 +1,23 @@
+package com.ssn.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/ssn/api")
+public class OperationsController {
+	
+	@GetMapping("/find/{ssn}")
+	public ResponseEntity<String> getState(@PathVariable String ssn)
+	{
+		
+		String patern="^[0-9]{9}$";
+		
+		
+		return null;
+	}
+
+}

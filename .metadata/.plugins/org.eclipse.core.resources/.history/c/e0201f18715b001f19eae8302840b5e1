@@ -1,0 +1,8 @@
+spring.application.name=AppRegistrationService
+
+server.port=5000
+
+spring.datasource.url=jdbc:mysql://localhost:3306/majorprojdb
+spring.datasource.username=root
+spring.datasource.password=Admin@123
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver

@@ -1,0 +1,43 @@
+package com.ars.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.web.reactive.function.client.WebClient;
+
+import com.ars.entity.RegistrationEntity;
+import com.ars.exception.InvalidSsnException;
+
+import reactor.core.publisher.Mono;
+
+public class RegistrationServiceImpl implements IRegistrationService {
+	
+	@Autowired
+	private WebClient client;
+	
+	@Value("${ssn-web.end-point}")
+	private String ssn_uri;
+
+	@Override
+	public String registerCustomer(RegistrationEntity entity) {
+		
+		client.get().uri(ssn_uri, entity.getSsn()).exchangeToMono(response->{
+			
+			HttpStatusCode status=response.statusCode();
+			
+			if(status.is2xxSuccessful())
+			{
+				return response.bodyToMono(String.class);
+			}
+			else if(status.is4xxClientError())
+			{
+				return Mono.error(()->new InvalidSsnException("Invalid ssn"))
+			}
+			
+		});
+		
+		return null;
+	}
+
+}
